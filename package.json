@@ -1,0 +1,56 @@
+{
+  "name": "@ntf/<NAME>",
+  "version": "0.0.0",
+  "description": "Another <NAME> library",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
+  "scripts": {
+    "pretest": "pnpm run build",
+    "test": "tsx --tsconfig ./tests/nodejs/tsconfig.json ./tests/nodejs/test.cts",
+    "build:prod": "pkgroll --src source --clean-dist",
+    "build": "pkgroll --src source --clean-dist --sourcemap",
+    "prepublishOnly": "npm run build:prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N1ghtTheF0x/ntf-<NAME>.git"
+  },
+  "keywords": [
+    "esm",
+    "cjs",
+    "nodejs",
+    "browser"
+  ],
+  "author": "N1ghtTheF0x",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/N1ghtTheF0x/ntf-<NAME>/issues"
+  },
+  "homepage": "https://github.com/N1ghtTheF0x/ntf-<NAME>#readme",
+  "devDependencies": {
+    "@types/node": "latest",
+    "express": "latest",
+    "pkgroll": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

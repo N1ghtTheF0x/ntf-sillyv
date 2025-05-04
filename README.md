@@ -1,25 +1,21 @@
-# @ntf/<NAME>
+# @ntf/sillyv
 
-Another <NAME> library
-
-## Why
-
-Because I like reinventing the wheel :)
+Unoffical client for SillyV art page
 
 ## Installation
 
 Use your favourite package manager, idk
 
 ```sh
-npm install @ntf/<NAME>
+npm install @ntf/sillyv
 ```
 
 ```sh
-yarn add @ntf/<NAME>
+yarn add @ntf/sillyv
 ```
 
 ```sh
-pnpm install @ntf/<NAME>
+pnpm install @ntf/sillyv
 ```
 
 ## Usage
@@ -29,13 +25,13 @@ pnpm install @ntf/<NAME>
 This library can be used in `CommonJS` and `ESModule` environments
 
 ```typescript
-const { ... } = require("@ntf/<NAME>");
+const { ... } = require("@ntf/sillyv");
 ```
 
 ```typescript
-import { ... } from "@ntf/<NAME>";
+import { ... } from "@ntf/sillyv";
 ```
 
 ## License stuff that nobody reads
 
-Just like any [Open Source Project](https://github.com/N1ghtTheF0x/ntf-<NAME>) this has a [License](./LICENSE), the MIT License
+Just like any [Open Source Project](https://github.com/N1ghtTheF0x/ntf-sillyv) this has a [License](./LICENSE), the MIT License

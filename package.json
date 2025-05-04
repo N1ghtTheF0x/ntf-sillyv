@@ -1,7 +1,7 @@
 {
-  "name": "@ntf/<NAME>",
-  "version": "0.0.0",
-  "description": "Another <NAME> library",
+  "name": "@ntf/sillyv",
+  "version": "0.0.1",
+  "description": "Unoffical client for SillyV art page",
   "files": [
     "dist"
   ],
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/N1ghtTheF0x/ntf-<NAME>.git"
+    "url": "git+https://github.com/N1ghtTheF0x/ntf-sillyv.git"
   },
   "keywords": [
     "esm",
@@ -38,13 +38,13 @@
   "author": "N1ghtTheF0x",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/N1ghtTheF0x/ntf-<NAME>/issues"
+    "url": "https://github.com/N1ghtTheF0x/ntf-sillyv/issues"
   },
-  "homepage": "https://github.com/N1ghtTheF0x/ntf-<NAME>#readme",
+  "homepage": "https://github.com/N1ghtTheF0x/ntf-sillyv#readme",
   "devDependencies": {
     "@types/node": "latest",
     "express": "latest",
-    "pkgroll": "latest",
+    "tsup": "latest",
     "tsx": "latest",
     "typescript": "latest"
   },

@@ -3,15 +3,15 @@ import { SillyVUser } from "./user"
 
 export class SillyVDrawing
 {
-    public static async fetch(options: SillyVDrawing.FetchOptions)
+    public static async fetch(options: IDrawingsOptions)
     {
         const drawings: Array<SillyVDrawing> = []
-        let nextToken: string | null = null
+        let nextToken = options.nextToken
         while(true)
         {
             const response = await fetchDrawings({
                 ...options,
-                nextToken: nextToken ?? undefined
+                nextToken: nextToken
             })
             drawings.push(...response.drawings.map((drawing) => new this(drawing)))
             const token = response.meta.nextToken
@@ -29,9 +29,4 @@ export class SillyVDrawing
     {
         return SillyVUser.fetch(this.raw.creator.name)
     }
-}
-
-export namespace SillyVDrawing
-{
-    export type FetchOptions = Omit<IDrawingsOptions,"nextToken">
 }

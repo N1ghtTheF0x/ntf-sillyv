@@ -1,12 +1,13 @@
+import { IMetaResponse, IToken } from "./meta"
+import { ActiveDay } from "./time"
 import { BASE_URL } from "./url"
-import { IUserResponse } from "./user"
 
 export interface IDrawing
 {
     id: string
     title: string
     imageUrl: string
-    createdAt: IUserResponse.ActiveDay
+    createdAt: ActiveDay
     nsfw: boolean
     tags: Array<string>
     description: string
@@ -23,31 +24,19 @@ export namespace IDrawing
     }
 }
 
-export interface IDrawingsResponse
+export interface IDrawingsResponse extends IMetaResponse
 {
     drawings: Array<IDrawing>
-    meta: IDrawingsResponse.IMeta
 }
 
-export namespace IDrawingsResponse
-{
-    export interface IMeta
-    {
-        count: number
-        nextToken: string | null
-        hasMore: boolean
-    }
-}
-
-export interface IDrawingsOptions
+export interface IDrawingsOptions extends IToken
 {
     username?: string
-    showNsfw: boolean
-    startDate?: IUserResponse.ActiveDay
-    endDate?: IUserResponse.ActiveDay
+    showNsfw?: boolean
+    startDate?: ActiveDay
+    endDate?: ActiveDay
     sortBy: "newest" | "oldest" | "popular"
     limit: number
-    nextToken?: string
     tag?: string
 }
 
@@ -58,7 +47,8 @@ export async function fetchDrawings(options: IDrawingsOptions)
         params.push(`tag=${options.tag}`)
     if(typeof options.username == "string")
         params.push(`username=${options.username}`)
-    params.push(`showNsfw=${options.showNsfw}`)
+    if(typeof options.showNsfw == "string")
+        params.push(`showNsfw=${options.showNsfw}`)
     if(typeof options.startDate == "string")
         params.push(`startDate=${options.startDate}`)
     if(typeof options.endDate == "string")

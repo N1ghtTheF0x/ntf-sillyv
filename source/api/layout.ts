@@ -1,3 +1,4 @@
+import { IMessage } from "./message"
 import { BASE_URL } from "./url"
 
 export interface ILayoutAvatar
@@ -7,15 +8,17 @@ export interface ILayoutAvatar
     username: string
 }
 
-export interface ILayoutAvatarsResponse
+export interface ILayoutAvatarsResponse extends IMessage
 {
-    message: string
     count: number
     items: Array<ILayoutAvatar>
 }
 
-export async function fetchLayoutAvatars(username: string)
+export async function fetchLayoutAvatars(username?: string)
 {
-    const response = await fetch(`${BASE_URL}/Prod/layout-avatars?username=${username}`)
+    let resource = `${BASE_URL}/Prod/layout-avatars`
+    if(typeof username == "string")
+        resource += `?username=${username}`
+    const response = await fetch(resource)
     return await response.json<ILayoutAvatarsResponse>()
 }

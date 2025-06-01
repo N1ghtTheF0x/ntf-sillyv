@@ -21,8 +21,8 @@
   "scripts": {
     "pretest": "pnpm run build",
     "test": "tsx --tsconfig ./tests/nodejs/tsconfig.json ./tests/nodejs/test.cts",
-    "build:prod": "pkgroll --src source --clean-dist",
-    "build": "pkgroll --src source --clean-dist --sourcemap",
+    "build:prod": "tsup ./source/index.ts --dts --format esm,cjs",
+    "build": "tsup ./source/index.ts --dts --format esm,cjs --sourcemap",
     "prepublishOnly": "npm run build:prod"
   },
   "repository": {

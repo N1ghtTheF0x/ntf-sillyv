@@ -1,3 +1,4 @@
+import { fetchAvatars } from "./api/avatar"
 import { fetchCharacters } from "./api/character"
 import { fetchDrawings, IDrawingsOptions } from "./api/drawing"
 import { fetchLayoutAvatars } from "./api/layout"
@@ -31,6 +32,11 @@ export class SillyVUser
     public getLayoutAvatars()
     {
         return SillyVLayoutAvatar.fetch(this.username)
+    }
+    public async getAvatarUrl()
+    {
+        const avatars = await fetchAvatars()
+        return avatars[this.username] as string | undefined
     }
     public getDrawings(options: SillyVUser.DrawingFetchOptions)
     {

@@ -33,7 +33,10 @@
     "esm",
     "cjs",
     "nodejs",
-    "browser"
+    "browser",
+    "sillyv",
+    "twitch",
+    "gartic phone"
   ],
   "author": "N1ghtTheF0x",
   "license": "MIT",
